@@ -4,6 +4,7 @@ class MyUserEntity {
   String name;
   bool hasActiveCart;
 
+  // constructor to initialize all fields
   MyUserEntity({
     required this.userId,
     required this.email,
@@ -11,6 +12,7 @@ class MyUserEntity {
     required this.hasActiveCart,
   });
 
+  // convert entity to document for firestore db storae
   Map<String, Object?> toDocument() {
     return {
       'userId': userId,
@@ -20,6 +22,7 @@ class MyUserEntity {
     };
   }
 
+  // convert document from firestore db to entity
   static MyUserEntity fromDocument(Map<String, dynamic> doc) {
     return MyUserEntity(
       userId: doc['userId'],
