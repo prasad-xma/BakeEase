@@ -23,11 +23,3 @@ class AuthenticationState extends Equatable {
   
   List<Object?> get props => [status, user];
 }
-
-
-/*
-@immutable
-sealed class AuthenticationState {}
-
-final class AuthenticationInitial extends AuthenticationState {}
-*/
