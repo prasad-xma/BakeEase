@@ -8,12 +8,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:bakeease/main.dart';
+// import 'package:bakeease/main.dart';
+import 'package:bakeease/app.dart';
+import 'package:user_repository/user_repository.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    
+    final userRepository = FirebaseUserRepo(); 
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(userRepository));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
