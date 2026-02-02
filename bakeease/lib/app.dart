@@ -1,4 +1,3 @@
-
 import 'package:bakeease/app_view.dart';
 import 'package:bakeease/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider <AuthenticationBloc>(
-      create: (context) => AuthenticationBloc(
-        userRepository: userRepository
-      ),
+    return RepositoryProvider<AuthenticationBloc>(
+      create: (context) => AuthenticationBloc(userRepository: userRepository),
       child: const MyAppView(),
     );
   }
