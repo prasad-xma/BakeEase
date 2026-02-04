@@ -68,14 +68,18 @@ class HomeScreen extends StatelessWidget {
                       // color: Colors.amberAccent,                   
                     ),
                     child: Image.asset(
-                      'assets/Leonardo.jpg',
+                      'assets/1.png',
                       fit: BoxFit.cover,
                       
                     ),
                   ),
 
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    
                     children: [
+                      // non-veg container
                       Container(
                         margin: EdgeInsets.only(right: 8.0, top: 5.0),
                         decoration: BoxDecoration(
@@ -84,18 +88,52 @@ class HomeScreen extends StatelessWidget {
                       
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           child: Text(
                             "NON-VEG",
                             style: TextStyle(
                               color: Colors.white,
-                          
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // balance container
+                      Container(
+                        margin: EdgeInsets.only(right: 8.0, top: 5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.green.withAlpha(65),
+                      
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          child: Text(
+                            "BALANCE",
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold
                             ),
                           ),
                         ),
                       )
                     ],
                   ),
+                  
+                  // item name
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: Text(
+                        'Cheese Pizza',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        ),
+                      
+                      ),
+                    ),
+                  )
                 ],
               ),
             );
