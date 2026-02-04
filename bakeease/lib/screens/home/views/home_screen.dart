@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 200,
+                    height: 190,
                     decoration: BoxDecoration(
                       // color: Colors.amberAccent,                   
                     ),
@@ -130,10 +130,24 @@ class HomeScreen extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.bold
                         ),
-                      
                       ),
                     ),
-                  )
+                  ),
+
+                // item description
+                Center(
+                  
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Text(
+                      'Crafting joy: your pizza, your rules, best taste!',
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                )
                 ],
               ),
             );
