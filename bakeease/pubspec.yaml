@@ -44,6 +44,9 @@ dependencies:
   user_repository:
     path: packages/user_repository
 
+  bake_repository:
+    path: packages/bake_repository
+
   
     
 
