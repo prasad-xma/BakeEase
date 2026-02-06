@@ -1,4 +1,5 @@
 import 'package:bakeease/screens/auth/blocs/sign_in_bloc/sign_in_bloc.dart';
+import 'package:bakeease/screens/home/views/details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,109 +47,151 @@ class HomeScreen extends StatelessWidget {
           ),
           itemCount: 8,
           itemBuilder: (context, int i){
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20.0),
-
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.shade300,
-                    offset: Offset(3, 3),
-                    blurRadius: 5
-                  ),
-                ]
+            return Material(
+              elevation: 3,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 190,
-                    decoration: BoxDecoration(
-                      // color: Colors.amberAccent,                   
+              child: InkWell(
+                borderRadius: BorderRadius.circular(20),
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const DetailsScreen(),
                     ),
-                    child: Image.asset(
-                      'assets/1.png',
-                      fit: BoxFit.cover,
+                  );
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        // color: Colors.amberAccent,                   
+                      ),
+                      child: Image.asset(
+                        'assets/1.png',
+                        fit: BoxFit.cover,
+                        
+                      ),
+                    ),
+                                
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       
+                      children: [
+                        // non-veg container
+                        Container(
+                          margin: EdgeInsets.only(right: 8.0, top: 2.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.red.shade400,
+                        
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            child: Text(
+                              "NON-VEG",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                                
+                        // balance container
+                        Container(
+                          margin: EdgeInsets.only(right: 8.0, top: 2.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.green.withAlpha(65),
+                        
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            child: Text(
+                              "BALANCE",
+                              style: TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     
-                    children: [
-                      // non-veg container
-                      Container(
-                        margin: EdgeInsets.only(right: 8.0, top: 5.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.red.shade400,
-                      
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          child: Text(
-                            "NON-VEG",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                    // item name
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        child: Text(
+                          'Cheese Pizza',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ),
-
-                      // balance container
-                      Container(
-                        margin: EdgeInsets.only(right: 8.0, top: 5.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.green.withAlpha(65),
-                      
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          child: Text(
-                            "BALANCE",
-                            style: TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  
-                  // item name
+                    ),
+                                
+                  // item description
                   Center(
+                    
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Text(
-                        'Cheese Pizza',
+                        'Crafting joy: your pizza, your rules, best taste!',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
                         ),
                       ),
                     ),
                   ),
-
-                // item description
-                Center(
-                  
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(
-                      'Crafting joy: your pizza, your rules, best taste!',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 12,
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 4.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4),
+                          child: Row(
+                            children: [
+                              Text(
+                                '\$12.00',
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 18.0
+                                ),
+                              ),
+                              const SizedBox(width: 6,),
+                              Text(
+                                '\$15.00',
+                                style: TextStyle(
+                                  color: Colors.grey.shade600,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14.0,
+                                  decoration: TextDecoration.lineThrough, 
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(CupertinoIcons.add_circled_solid),
+                        )
+                      ],
                     ),
-                  ),
-                )
-                ],
+                  )
+                  ],
+                ),
               ),
             );
           },
